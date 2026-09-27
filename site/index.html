@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>n8n实战课11 · AI研究报告生成器</title>
+<style>
+body{margin:0;font-family:-apple-system,"Microsoft YaHei",sans-serif;background:#0d1b2a;color:#e0e6ed;line-height:1.7}
+.wrap{max-width:860px;margin:0 auto;padding:48px 20px}
+.badge{display:inline-block;background:#1b4965;color:#5fa8d3;border-radius:4px;padding:2px 10px;font-size:13px}
+h1{font-size:32px;margin:14px 0 8px}h2{color:#5fa8d3;border-left:4px solid #5fa8d3;padding-left:10px;margin-top:36px}
+.card{background:#16283c;border-radius:10px;padding:18px 22px;margin:14px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.kpi{font-size:26px;font-weight:700;color:#62b6cb}.dim{color:#8fa3b8;font-size:14px}
+code{background:#0a1420;padding:2px 6px;border-radius:4px;color:#f4d35e}
+a{color:#62b6cb}.pitfall{border-left:3px solid #e63946;padding-left:12px;margin:10px 0}
+footer{margin-top:48px;color:#56708a;font-size:13px;text-align:center}
+</style></head><body><div class="wrap">
+<span class="badge">n8n 实战课 · lesson-11</span>
+<h1>AI 研究报告生成器</h1>
+<p class="dim">官方模板 19710 · 12 功能节点 · OpenAI + Wikipedia + Sheets + Slack → 中国免费替代版</p>
+<div class="grid">
+<div class="card"><div class="kpi">30/30</div><div class="dim">A 单元级断言</div></div>
+<div class="card"><div class="kpi">17/17</div><div class="dim">B mock 场景断言</div></div>
+<div class="card"><div class="kpi">E2E</div><div class="dim">C 真跑通过（DeepSeek+DBpedia+飞书）</div></div>
+<div class="card"><div class="kpi">10</div><div class="dim">实锤坑（全带修复方案）</div></div>
+</div>
+<h2>它做什么</h2>
+<p>输入一个研究主题 → AI 拆 5 个搜索查询 → 逐条查百科抓正文 → AI 综合成 8 章节结构化报告 → 存档 + 通知 + 回传。把「人工查资料写调研」变成一条流水线。</p>
+<h2>最有教育价值的 3 个坑</h2>
+<div class="pitfall"><b>报告按词条逐条生成</b>：循环回连接在末端，25 条结果=25 次 AI 综合+25 条 Slack 刷屏（B/C 双关实锤）</div>
+<div class="pitfall"><b>赌死 GPT 输出习惯</b>：报告切片全靠 <code>###</code> 标题，换 DeepSeek 8 字段全空、静默入库；prompt 加一行即修（C 关两轮对比实测）</div>
+<div class="pitfall"><b>只处理第 1 个查询</b>：<code>$input.first()</code> 让 5 个搜索查询 4 个白搜</div>
+<h2>课程文件</h2>
+<p>📄 <a href="https://github.com/xinchun575924529/n8n-lesson-11-structured-research-reports">GitHub 仓库</a>（workflow.json 官方原版 + workflow-custom.json 免费替代版 + 全套文档 + 练习含答案）</p>
+<h2>免费替代结论</h2>
+<p>OpenAI→DeepSeek（几分钱/次）· Wikipedia→DBpedia（免费无 key）· Sheets→本地 JSON/多维表 · Slack→飞书群。<b>全链零美元跑通。</b></p>
+<footer>n8n 实战课系列 · 只讲真跑过的工作流</footer>
+</div></body></html>
