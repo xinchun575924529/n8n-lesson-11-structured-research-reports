@@ -36,3 +36,5 @@ POST {"topic":"honey production"}
   → AI 综合成 8 章节报告（摘要/发现/事实/益处/挑战/趋势/展望/参考）
   → 存 Google Sheets + Slack 通知 + 回传 JSON
 ```
+
+<!-- Pages-Trigger 2026-09-29 -->
